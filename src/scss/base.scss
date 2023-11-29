@@ -1,0 +1,18 @@
+:root {
+  --animation-duration: 0.8s;
+}
+
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  color: #333333;
+  background: url('../img/clouds.svg') no-repeat top 40px center, linear-gradient(180deg, #c2e5fe 0%, #ffffff 50%) no-repeat;
+}
+
+.container {
+  max-width: 940px;
+  width: 100%;
+  margin: 0 auto;
+}
