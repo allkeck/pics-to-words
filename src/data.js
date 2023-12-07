@@ -84,3 +84,9 @@ export const images = [
     type: 'image',
   },
 ];
+
+export const results = [
+  { name: 'Вася', steps: 1 },
+  { name: 'Аня', steps: 3 },
+  { name: 'Петя', steps: 5 },
+];

@@ -21,18 +21,12 @@ export const useGame = (data) => {
     setStepsCount((prevCount) => ++prevCount);
   };
 
-  const handleReset = () => {
-    setFinishedCards([]);
-    setStepsCount(0);
-  };
-
   const errorsCount = stepsCount - finishedCards.length / 2;
   const lives = LIVES_COUNT - errorsCount;
   const isWin = finishedCards.length === data.length;
   const isGameOver = isWin || lives === 0;
   return {
     finishedCards,
-    handleReset,
     checkCards,
     errorsCount,
     isGameOver,

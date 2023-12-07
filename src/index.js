@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom/client';
 
 import { App } from './components/App/App.jsx';
 
-import { images } from './data.js';
+import { images, results } from './data.js';
 
 import './scss/index.scss';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
-root.render(<App data={images} />);
+root.render(<App data={images} results={results} />);
