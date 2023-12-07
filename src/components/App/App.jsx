@@ -1,20 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Grid } from '../Grid/Grid.jsx';
+import { GameHeader } from '../GameHeader/GameHeader';
+import { Grid } from '../Grid/Grid';
+import { Modal } from '../Modal/Modal';
+
+import { useGame } from '../../hooks/useGame.js';
 
 import './style.scss';
 
 export const App = ({ data = [] }) => {
-  const [stepsCount, setStepsCount] = useState(0);
+  const { finishedCards, handleReset, checkCards, isGameOver, isWin, errorsCount } = useGame(data);
 
-  const handleIncStepsCounter = () => {
-    setStepsCount((prevCount) => ++prevCount);
-  };
+  const modalClassName = isWin ? '' : 'modal-box-lose';
+  const modalCaption = isWin ? 'Победа' : 'Поражение';
+  const modalDescription = `Вы нашли ${finishedCards.length / 2} слова`;
 
   return (
     <section className="game container">
-      <div className="steps">Шаг {stepsCount}</div>
-      <Grid images={data} handleIncStepsCounter={handleIncStepsCounter} />
+      <GameHeader value={finishedCards.length} max={data.length} errorsCount={errorsCount} />
+      <Grid images={data} checkCards={checkCards} finishedCards={finishedCards} />
+      {isGameOver && (
+        <Modal className={modalClassName}>
+          <h3 className="modal-caption">{modalCaption}</h3>
+          <p className="modal-description">{modalDescription}</p>
+          <button onClick={handleReset} className="button" type="button">
+            Новая игра
+          </button>
+        </Modal>
+      )}
     </section>
   );
 };

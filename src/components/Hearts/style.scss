@@ -1,0 +1,20 @@
+.hit-points {
+  &-indicator {
+    display: flex;
+    column-gap: 12px;
+  }
+
+  &-item {
+    width: 22px;
+    height: 20px;
+    border-radius: 50%;
+  }
+
+  &-unused {
+    background-color: red;
+  }
+
+  &-used {
+    background-color: rgb(150, 78, 78);
+  }
+}

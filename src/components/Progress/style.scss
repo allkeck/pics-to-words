@@ -1,0 +1,19 @@
+.progress-wrapper {
+  display: flex;
+  width: 460px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.progress {
+  background-color: #00ca51;
+  border-radius: 8px;
+  transition: width var(--animation-duration);
+}
+
+.progress-description {
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+}
